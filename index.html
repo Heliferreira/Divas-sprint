@@ -476,25 +476,15 @@
   /* Foto das duas idealizadoras juntas — troque o div.founder-photo abaixo por
      <img class="founder-photo" src="caminho-da-foto.jpg" alt="Erica Marques e Jessica"> */
   .founder-photo{
-    aspect-ratio:16/10;
-    border-radius:24px;
-    border:2px dashed rgba(57,27,71,0.35);
-    background:linear-gradient(135deg, rgba(216,31,127,0.08), rgba(255,122,69,0.08));
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-bottom:26px;
-  }
-  .founder-photo svg{width:34px;height:34px;opacity:0.45;color:var(--plum);}
-  .founder-photo span{
-    font-size:0.68rem;
-    font-weight:800;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--magenta);
-  }
+  width:100%;
+  max-width:440px;
+  height:auto;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  border-radius:24px;
+  margin:0 auto 26px auto;
+  display:block;
+}
   .founders-names{
     display:flex;
     justify-content:center;
@@ -885,10 +875,7 @@
     <div class="founders-single reveal">
       <!-- Espaço reservado para foto das duas idealizadoras juntas.
            Substitua o div abaixo por: <img class="founder-photo" src="caminho-da-foto.jpg" alt="Erica Marques e Jéssica Rauen"> -->
-      <div class="founder-photo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8a2 2 0 0 1 2-2h1.2l.8-1.5a1 1 0 0 1 .9-.5h4.2a1 1 0 0 1 .9.5L14.8 6H16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"/><circle cx="12" cy="13" r="3.2"/></svg>
-        <span>Foto em breve</span>
-      </div>
+      <img class="founder-photo" src="imagem/divonicasmaster.jpeg" alt="Erica Marques e Jéssica Rauen">
       <div class="founders-names">
         <div>
           <h3>Erica Marques</h3>
