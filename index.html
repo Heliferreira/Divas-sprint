@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIVAS LEAD — Liderança Humanizada para Inovação</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --ink:#150f1c;
+    --plum:#391b47;
+    --magenta:#d81f7f;
+    --coral:#ff7a45;
+    --cream:#faf4ec;
+    --gold:#e8b978;
+    --line: rgba(250,244,236,0.14);
+    --grad: linear-gradient(120deg, #6a2288 0%, #d81f7f 52%, #ff7a45 100%);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.92;
+  }
+
+  em.script{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    text-transform:none;
+    background:linear-gradient(90deg,#ffb08a,#ff8fc2);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--magenta);
+  }
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(21,15,28,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:68px;
+  }
+  .logo{
+    font-family:'Anton',sans-serif;
+    color:var(--cream);
+    font-size:1.15rem;
+    letter-spacing:0.02em;
+  }
+  .logo span{color:var(--coral);}
+  .nav-cta{
+    background:var(--grad);
+    color:#fff;
+    font-weight:700;
+    font-size:0.82rem;
+    padding:10px 22px;
+    border-radius:100px;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--cream);
+    padding:150px 0 90px;
+    overflow:hidden;
+  }
+  /* Foto da última turma formada — troque a url() abaixo pelo caminho da imagem.
+     Ex.: background-image:url('assets/turma-formatura.jpg');
+     Camadas (z-index): foto (0) < texto "LIDERE" de fundo (1) < título/marquee (2).
+     Ou seja, ao adicionar a foto, o texto "LIDERE" de fundo e a faixa animada
+     continuam visíveis por cima dela — não é preciso mexer em mais nada. */
+  .hero-photo{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background-image: url('imagem/divonicasgroup.jpeg');
+    background-size:cover;
+    background-position:center;
+  }
+  .hero-photo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(21,15,28,0.55) 0%, rgba(21,15,28,0.88) 78%, var(--ink) 100%),
+      linear-gradient(120deg, rgba(106,34,136,0.55) 0%, rgba(216,31,127,0.42) 52%, rgba(255,122,69,0.38) 100%);
+  }
+  .stack-bg{
+    position:absolute;
+    top:52%; left:50%;
+    transform:translate(-50%,-50%) rotate(-3deg);
+    width:140%;
+    text-align:center;
+    z-index:1;
+    pointer-events:none;
+    user-select:none;
+  }
+  .stack-bg div{
+    font-family:'Anton',sans-serif;
+    font-size:11.5vw;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(250,244,236,0.07);
+    line-height:0.86;
+    white-space:nowrap;
+  }
+  .hero-inner{position:relative;z-index:2;text-align:center;}
+  .hero .eyebrow{color:var(--gold);margin-bottom:22px;display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.6rem, 7.2vw, 5.4rem);
+    color:var(--cream);
+  }
+  .hero h1 .grad-word{
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lede{
+    max-width:560px;
+    margin:30px auto 0;
+    font-size:1.08rem;
+    line-height:1.6;
+    color:rgba(250,244,236,0.78);
+  }
+  .hero-ctas{
+    margin-top:40px;
+    display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  }
+  .btn-primary{
+    display:inline-block;
+    background:var(--grad);
+    color:#fff;
+    font-weight:800;
+    font-size:0.92rem;
+    padding:16px 34px;
+    border-radius:100px;
+    box-shadow:0 12px 30px rgba(216,31,127,0.35);
+    text-align:center;
+    line-height:1.3;
+    max-width:100%;
+  }
+  .btn-ghost{
+    display:inline-block;
+    border:1.5px solid rgba(250,244,236,0.35);
+    color:var(--cream);
+    font-weight:700;
+    font-size:0.92rem;
+    padding:15px 30px;
+    border-radius:100px;
+    text-align:center;
+    line-height:1.3;
+    max-width:100%;
+  }
+
+  .marquee{
+    position:relative;z-index:2;
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:16px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .marquee-track{
+    display:inline-block;
+    animation:scroll 26s linear infinite;
+    font-family:'Anton',sans-serif;
+    font-size:1rem;
+    letter-spacing:0.05em;
+    color:rgba(250,244,236,0.55);
+  }
+  .marquee-track span{margin:0 26px;}
+  .marquee-track span.hi{color:var(--coral);}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- INTRO ---------- */
+  .intro{
+    padding:110px 0 90px;
+    background:var(--cream);
+  }
+  .intro-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .intro h2{
+    font-size:clamp(2rem,4vw,3rem);
+    color:var(--ink);
+  }
+  .intro-attribution{
+    margin-top:14px;
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    letter-spacing:0.04em;
+    color:#3a3140;
+  }
+  .intro-copy p{
+    font-size:1.06rem;
+    line-height:1.75;
+    color:#3a3140;
+    margin-bottom:20px;
+  }
+  .intro-copy p:first-child{
+    font-family:'Fraunces',serif;
+    font-size:1.28rem;
+    font-weight:500;
+    color:var(--ink);
+    line-height:1.5;
+  }
+
+  .for-who{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .fw-card{
+    border:1px solid rgba(21,15,28,0.12);
+    border-radius:18px;
+    padding:26px 22px;
+    background:#fff;
+  }
+  .fw-card .num{
+    font-family:'Anton',sans-serif;
+    font-size:0.78rem;
+    color:var(--magenta);
+    margin-bottom:10px;
+    display:block;
+  }
+  .fw-card p{font-size:0.95rem;line-height:1.5;color:#3a3140;}
+
+  /* ---------- PHOTO STRIP (grid feed homage) ---------- */
+  .grid-strip{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:6px;
+    background:var(--ink);
+    padding:6px;
+  }
+  .grid-strip .cell{
+    aspect-ratio:1/1;
+    position:relative;
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    padding:10px;
+  }
+  .grid-strip .cell.g1{background:linear-gradient(135deg,#6a2288,#d81f7f);}
+  .grid-strip .cell.g2{background:linear-gradient(135deg,#d81f7f,#ff7a45);}
+  .grid-strip .cell.g3{background:#1c1420;}
+  .grid-strip .cell.g4{background:linear-gradient(135deg,#ff7a45,#e8b978);}
+  .grid-strip .cell.g5{background:linear-gradient(135deg,#391b47,#150f1c);}
+  .grid-strip .cell.g6{background:linear-gradient(135deg,#e8b978,#d81f7f);}
+  .grid-strip .cell span{
+    font-family:'Anton',sans-serif;
+    font-size:0.68rem;
+    color:rgba(255,255,255,0.9);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- JOURNEY ---------- */
+  .journey{
+    background:var(--plum);
+    color:var(--cream);
+    padding:110px 0;
+  }
+  .journey-head{max-width:640px;margin-bottom:70px;}
+  .journey-head .eyebrow{color:var(--gold);}
+  .journey-head h2{font-size:clamp(2rem,4.2vw,3.1rem);margin-top:14px;}
+  .journey-head p{margin-top:20px;font-size:1.03rem;line-height:1.7;color:rgba(250,244,236,0.75);}
+
+  .stage{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:36px;
+    padding:44px 0;
+    border-top:1px solid rgba(250,244,236,0.16);
+  }
+  .stage:last-child{border-bottom:1px solid rgba(250,244,236,0.16);}
+  .stage-mark{
+    font-family:'Anton',sans-serif;
+    font-size:1rem;
+    color:var(--coral);
+    letter-spacing:0.04em;
+  }
+  .stage h3{
+    font-size:clamp(1.5rem,2.6vw,2.1rem);
+    color:var(--cream);
+    margin-bottom:14px;
+    text-transform:none;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    line-height:1.2;
+  }
+  .stage p{
+    font-size:1rem;
+    line-height:1.7;
+    color:rgba(250,244,236,0.75);
+    max-width:680px;
+    margin-bottom:16px;
+  }
+  .stage .tools{
+    font-size:0.85rem;
+    color:rgba(250,244,236,0.55);
+    line-height:1.7;
+  }
+  .stage .tools b{color:var(--gold);font-weight:700;}
+
+  /* ---------- FORMATO (presencial / online) ---------- */
+  .format{
+    background:var(--cream);
+    padding:0 0 110px;
+  }
+  .format-head{text-align:center;max-width:600px;margin:0 auto 46px;}
+  .format-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:14px;}
+  .format-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    max-width:800px;
+    margin:0 auto;
+  }
+  .format-card{
+    border-radius:40px;
+    padding:34px 30px;
+    background:var(--grad);
+    text-align:center;
+    box-shadow:0 16px 34px rgba(216,31,127,0.28);
+  }
+  .format-card h3{
+    font-family:'Fraunces',serif;
+    text-transform:none;
+    font-weight:600;
+    font-size:1.3rem;
+    color:#fff;
+    margin-bottom:12px;
+  }
+  .format-card p{font-size:0.96rem;line-height:1.6;color:rgba(255,255,255,0.9);}
+  .format-note{
+    text-align:center;
+    margin-top:30px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--plum);
+  }
+  .format-cta{text-align:center;margin-top:38px;}
+  .section-cta{text-align:center;margin-top:56px;}
+
+  /* ---------- WHAT YOU FIND ---------- */
+  .find{
+    background:var(--cream);
+    padding:0 0 110px;
+  }
+  .find-head{text-align:center;max-width:600px;margin:0 auto 60px;}
+  .find-head h2{font-size:clamp(2rem,4vw,3rem);}
+  .find-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2px;
+    background:rgba(21,15,28,0.1);
+    border:1px solid rgba(21,15,28,0.1);
+  }
+  .find-item{
+    background:var(--cream);
+    padding:34px 30px;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .find-item .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--grad);
+    margin-top:8px;flex-shrink:0;
+  }
+  .find-item p{font-size:1.02rem;line-height:1.55;color:var(--ink);font-weight:600;}
+  .find-item p b{color:var(--magenta);font-weight:800;}
+
+  /* ---------- PATH (cofacilitadora / facilitadora) ---------- */
+  .path{
+    background:var(--ink);
+    color:var(--cream);
+    padding:110px 0;
+  }
+  .path-head{text-align:center;max-width:620px;margin:0 auto 50px;}
+  .path-head .eyebrow{color:var(--gold);}
+  .path-head h2{font-size:clamp(1.9rem,3.8vw,2.8rem);margin-top:14px;}
+  .path-head p{margin-top:18px;font-size:1.02rem;line-height:1.7;color:rgba(250,244,236,0.75);}
+  .path-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    max-width:800px;
+    margin:0 auto;
+  }
+  .path-card{
+    position:relative;
+    border-radius:20px;
+    padding:32px 28px;
+    background:linear-gradient(160deg, rgba(216,31,127,0.22), rgba(255,122,69,0.14));
+    border:1px solid rgba(255,122,69,0.4);
+    box-shadow:0 22px 50px rgba(216,31,127,0.22);
+  }
+  .path-card .eyebrow{
+    display:block;
+    margin-bottom:12px;
+    font-size:0.78rem;
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-weight:800;
+  }
+  .path-card p{font-size:0.98rem;line-height:1.65;color:rgba(250,244,236,0.88);}
+
+  /* ---------- XPERTS COMMUNITY ---------- */
+  .community{
+    background:var(--cream);
+    padding:100px 0;
+    text-align:center;
+  }
+  .community-inner{max-width:680px;margin:0 auto;}
+  .community h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-top:14px;}
+  .community p{margin-top:20px;font-size:1.04rem;line-height:1.75;color:#3a3140;}
+
+  /* ---------- IDEALIZADORAS ---------- */
+  .founders{
+    background:var(--cream);
+    padding:100px 0 110px;
+    border-top:1px solid rgba(21,15,28,0.08);
+  }
+  .founders-head{text-align:center;max-width:660px;margin:0 auto 56px;}
+  .founders-head h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-top:14px;}
+  .founders-head p{margin-top:20px;font-size:1.03rem;line-height:1.75;color:#3a3140;}
+  .founders-single{
+    max-width:620px;
+    margin:0 auto;
+    text-align:center;
+  }
+  /* Foto das duas idealizadoras juntas — troque o div.founder-photo abaixo por
+     <img class="founder-photo" src="caminho-da-foto.jpg" alt="Erica Marques e Jessica"> */
+  .founder-photo{
+    aspect-ratio:16/10;
+    border-radius:24px;
+    border:2px dashed rgba(57,27,71,0.35);
+    background:linear-gradient(135deg, rgba(216,31,127,0.08), rgba(255,122,69,0.08));
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:26px;
+  }
+  .founder-photo svg{width:34px;height:34px;opacity:0.45;color:var(--plum);}
+  .founder-photo span{
+    font-size:0.68rem;
+    font-weight:800;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--magenta);
+  }
+  .founders-names{
+    display:flex;
+    justify-content:center;
+    gap:56px;
+    flex-wrap:wrap;
+  }
+  .founders-names h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    text-transform:none;
+    font-size:1.3rem;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .founders-names p{font-size:0.92rem;line-height:1.5;color:#3a3140;}
+
+  /* ---------- INVESTIMENTO ---------- */
+  .invest{
+    background:var(--plum);
+    color:var(--cream);
+    padding:100px 0;
+  }
+  .invest-inner{max-width:680px;margin:0 auto;text-align:center;}
+  .invest .eyebrow{color:var(--gold);}
+  .invest h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-top:14px;}
+  .invest p{margin-top:20px;font-size:1.02rem;line-height:1.75;color:rgba(250,244,236,0.8);}
+  .invest p.strong{color:var(--cream);font-weight:600;}
+
+  /* ---------- MOVEMENT QUOTE ---------- */
+  .movement{
+    background:var(--ink);
+    color:var(--cream);
+    padding:130px 0;
+    text-align:center;
+    position:relative;
+  }
+  .movement::before{
+    content:"";
+    position:absolute;inset:0;
+    background:var(--grad);
+    opacity:0.12;
+  }
+  .movement-inner{position:relative;max-width:760px;margin:0 auto;}
+  .movement p.eyebrow{color:var(--coral);margin-bottom:26px;}
+  .movement h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-style:italic;
+    text-transform:none;
+    font-size:clamp(1.7rem,3.6vw,2.7rem);
+    line-height:1.4;
+    color:var(--cream);
+  }
+  .movement h2 b{
+    font-weight:600;
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  /* ---------- CTA / TURMA ---------- */
+  .cta{
+    background:var(--cream);
+    padding:110px 0 130px;
+  }
+  .cta-card{
+    background:var(--ink);
+    border-radius:28px;
+    padding:64px 50px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  .cta-card::before{
+    content:"";
+    position:absolute;
+    width:600px;height:600px;
+    background:var(--grad);
+    filter:blur(90px);
+    opacity:0.35;
+    top:-200px;right:-150px;
+    border-radius:50%;
+  }
+  .cta-inner{position:relative;z-index:2;}
+  .cta .eyebrow{color:var(--gold);}
+  .cta-card h2{
+    color:var(--cream);
+    font-size:clamp(2rem,4.6vw,3.3rem);
+    margin-top:16px;
+  }
+  .cta-card p{
+    color:rgba(250,244,236,0.75);
+    max-width:520px;
+    margin:22px auto 40px;
+    font-size:1.02rem;
+    line-height:1.65;
+  }
+  .turma-info{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin:0 auto 42px;
+    padding:26px 0;
+    border-top:1px solid rgba(250,244,236,0.16);
+    border-bottom:1px solid rgba(250,244,236,0.16);
+  }
+  .turma-info div{text-align:left;}
+  .turma-info .lbl{
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--coral);
+    font-weight:800;
+    margin-bottom:6px;
+  }
+  .turma-info .val{
+    color:var(--cream);
+    font-weight:700;
+    font-size:1rem;
+  }
+  .cta-foot-note{
+    margin-top:22px;
+    font-size:0.85rem;
+    color:rgba(250,244,236,0.55);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:rgba(250,244,236,0.55);
+    padding:40px 0;
+    border-top:1px solid var(--line);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  }
+  footer .logo{font-size:0.95rem;}
+  footer a.ig{color:var(--cream);font-weight:700;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:860px){
+    .intro-grid{grid-template-columns:1fr;gap:34px;}
+    .for-who{grid-template-columns:1fr;}
+    .stage{grid-template-columns:1fr;gap:10px;}
+    .find-list{grid-template-columns:1fr;}
+    .grid-strip{grid-template-columns:repeat(3,1fr);}
+    .turma-info{flex-direction:column;align-items:center;text-align:center;}
+    .turma-info div{text-align:center;}
+    .cta-card{padding:46px 26px;}
+    .format-grid{grid-template-columns:1fr;}
+    .path-grid{grid-template-columns:1fr;}
+    .founders-names{gap:30px;}
+  }
+
+  @media (max-width:480px){
+    .wrap{padding:0 18px;}
+    nav .wrap{height:60px;}
+    .logo{font-size:0.95rem;}
+    .nav-cta{font-size:0.72rem;padding:8px 16px;}
+    .hero{padding:130px 0 70px;}
+    .hero-ctas{gap:12px;}
+    .btn-primary,.btn-ghost{padding:14px 24px;font-size:0.85rem;}
+    .grid-strip{grid-template-columns:repeat(2,1fr);}
+    .format-card{padding:28px 22px;}
+    .cta-card h2{font-size:clamp(1.7rem,8vw,2.4rem);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .marquee-track{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">DIVAS<span>·</span>LEAD</div>
+    <a href="#cta" class="nav-cta">Inscrições Abertas</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- FOTO DA ÚLTIMA TURMA: defina a imagem em .hero-photo { background-image:url('...') } no CSS acima -->
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="stack-bg" aria-hidden="true">
+    <div>LIDERE LIDERE LIDERE</div>
+    <div>LIDERE LIDERE LIDERE</div>
+    <div>LIDERE LIDERE LIDERE</div>
+    <div>LIDERE LIDERE LIDERE</div>
+  </div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Programa Divas Lead · we are DIVAS</span>
+    <h1>Liderança<br><span class="grad-word">Humanizada</span><br>para Inovação</h1>
+    <p class="lede">Uma jornada para mulheres que querem se desenvolver, se posicionar, criar conexões e gerar resultados. O Divas Lead é uma formação de 3 meses que conecta autoconhecimento, liderança, inovação, posicionamento e comunidade.</p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">Quero fazer parte</a>
+      <a href="#jornada" class="btn-ghost">Conhecer a jornada</a>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="hi">Autoliderança</span><span>Eu com as Pessoas</span><span class="hi">Nós Gerando Resultados</span><span>Comunicação Estratégica</span><span class="hi">Mentoria Coletiva</span><span>OKR & SCRUM</span>
+      <span class="hi">Autoliderança</span><span>Eu com as Pessoas</span><span class="hi">Nós Gerando Resultados</span><span>Comunicação Estratégica</span><span class="hi">Mentoria Coletiva</span><span>OKR & SCRUM</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-grid reveal">
+      <div class="intro-headline">
+        <h2>Quando uma<br><em class="script">mulher prospera</em>,<br>toda a sociedade<br>prospera.</h2>
+        <p class="intro-attribution">— Erica Marques</p>
+      </div>
+      <div class="intro-copy">
+        <p>O Divas Lead é uma formação para mulheres que desejam desenvolver sua liderança, ampliar sua presença profissional e transformar ideias em resultados concretos.</p>
+        <p>Mais do que uma formação, é uma jornada de desenvolvimento, prática, troca e construção coletiva.</p>
+        <p>Você não caminha sozinha. Caminha com mulheres que também escolheram crescer.</p>
+      </div>
+    </div>
+
+    <div class="for-who reveal">
+      <div class="fw-card"><span class="num">Para você que</span><p>Está empreendendo e quer liderar com mais estrutura, clareza e confiança.</p></div>
+      <div class="fw-card"><span class="num">Para você que</span><p>Está em transição de carreira e busca se profissionalizar e fortalecer seu posicionamento.</p></div>
+      <div class="fw-card"><span class="num">Para você que</span><p>Tem um projeto no papel e precisa de clareza e ferramentas para tirá-lo do lugar.</p></div>
+      <div class="fw-card"><span class="num">Para você que</span><p>Já lidera pessoas e quer desenvolver uma liderança mais humana, estratégica e inovadora.</p></div>
+      <div class="fw-card"><span class="num">Para você que</span><p>Deseja fortalecer sua comunicação e presença profissional para ocupar novos espaços.</p></div>
+      <div class="fw-card"><span class="num">Para você que</span><p>Está pronta para conquistar mais reconhecimento e gerar impacto real.</p></div>
+    </div>
+    <div class="section-cta reveal">
+      <a href="#cta" class="btn-primary">Quero fazer parte</a>
+    </div>
+  </div>
+</section>
+
+<!-- GRID STRIP -->
+<div class="grid-strip" aria-hidden="true">
+  <div class="cell g1"><span>DIVAS<br>LEAD</span></div>
+  <div class="cell g2"><span>Liderança<br>Humanizada</span></div>
+  <div class="cell g3"><span>Comunidade<br>Xperts</span></div>
+  <div class="cell g4"><span>Inovação<br>&amp; Ação</span></div>
+  <div class="cell g5"><span>Mentoria<br>Coletiva</span></div>
+  <div class="cell g6"><span>Inscrições<br>Abertas</span></div>
+</div>
+
+<!-- JORNADA -->
+<section class="journey" id="jornada">
+  <div class="wrap">
+    <div class="journey-head reveal">
+      <span class="eyebrow">A jornada Divas Lead</span>
+      <h2>Quatro movimentos para transformar liderança em prática</h2>
+      <p>A jornada foi construída de dentro para fora: você começa desenvolvendo a si mesma, fortalece a forma como se relaciona com as pessoas e aprende a construir resultados em coletivo.</p>
+    </div>
+
+    <div class="stage reveal">
+      <span class="stage-mark">01 · EU</span>
+      <div>
+        <h3>Autoliderança, autoconhecimento e inteligência emocional</h3>
+        <p>Toda liderança começa em você. Trabalhamos autoconhecimento, propósito, inteligência emocional, confiança e ativação de potencial para desenvolver a capacidade de liderar a si mesma.</p>
+        <p class="tools"><b>Ferramentas e temas —</b> Business Model You, metodologias ágeis, características empreendedoras pessoais, alta performance e ativação de potencial.</p>
+      </div>
+    </div>
+
+    <div class="stage reveal">
+      <span class="stage-mark">02 · EU COM AS PESSOAS</span>
+      <div>
+        <h3>Liderança humanizada e gestão de pessoas</h3>
+        <p>Você desenvolve comunicação, presença, escuta, feedback, gestão de pessoas e ferramentas para construir relações mais produtivas e desenvolver o potencial de quem está ao seu redor.</p>
+        <p class="tools"><b>Ferramentas e temas —</b> Liderança humanizada, gestão de pessoas, Design Sprint, Sprint Setup, comunicação assertiva, feedbacks eficazes e mentoria coletiva.</p>
+      </div>
+    </div>
+
+    <div class="stage reveal">
+      <span class="stage-mark">03 · NÓS GERANDO RESULTADOS</span>
+      <div>
+        <h3>Projetos, inovação e resultados que acontecem no coletivo</h3>
+        <p>Você aprende a estruturar projetos, organizar prioridades, definir objetivos, acompanhar resultados e transformar desafios em soluções junto com outras pessoas.</p>
+        <p class="tools"><b>Ferramentas e temas —</b> SCRUM, OKR, Design Sprint, melhoria contínua, gestão visual, comunicação estratégica, técnicas de oratória e mentoria coletiva.</p>
+      </div>
+    </div>
+
+    <div class="stage reveal">
+      <span class="stage-mark">04 · RETROSPECTIVA</span>
+      <div>
+        <h3>Aprender, compartilhar e evoluir continuamente</h3>
+        <p>Momentos de troca, reflexão e mentoria coletiva para transformar experiências em aprendizados e próximos passos.</p>
+        <p class="tools"><b>Ferramentas e temas —</b> Retrospectivas ágeis, SCRUM, mentoria coletiva, ativação de potencial e melhoria contínua.</p>
+      </div>
+    </div>
+
+    <div class="section-cta reveal">
+      <a href="#cta" class="btn-primary">Quero fazer parte</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENCIAL OU ONLINE -->
+<section class="format">
+  <div class="wrap">
+    <div class="format-head reveal">
+      <span class="eyebrow">Como participar</span>
+      <h2>Presencial ou online</h2>
+    </div>
+    <div class="format-grid reveal">
+      <div class="format-card">
+        <h3>Presencial</h3>
+        <p>Encontros para aprender, praticar, trocar e construir conexões ao vivo.</p>
+      </div>
+      <div class="format-card">
+        <h3>Online</h3>
+        <p>A mesma jornada, com a flexibilidade de participar de onde estiver.</p>
+      </div>
+    </div>
+    <p class="format-note reveal">O propósito é o mesmo. A comunidade também.</p>
+    <div class="format-cta reveal">
+      <a href="#cta" class="btn-primary">Quero garantir minha vaga</a>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VOCÊ ENCONTRA -->
+<section class="find">
+  <div class="wrap">
+    <div class="find-head reveal">
+      <span class="eyebrow">O que você encontra no Divas Lead</span>
+      <h2>Um espaço feito para você crescer com apoio</h2>
+    </div>
+    <div class="find-list reveal">
+      <div class="find-item"><span class="dot"></span><p><b>Desenvolvimento:</b> competências para liderar pessoas e projetos.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Ferramentas:</b> metodologias aplicáveis à carreira, negócios e projetos.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Posicionamento:</b> mais clareza para comunicar seu valor e ocupar espaços.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Networking:</b> conexões reais com mulheres que vivem desafios semelhantes.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Mentoria coletiva:</b> troca de experiências e construção conjunta.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Comunidade:</b> um ambiente de mulheres que se fortalecem e se impulsionam.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Prática:</b> menos teoria isolada e mais aplicação, experimentação e construção.</p></div>
+      <div class="find-item"><span class="dot"></span><p><b>Resultados:</b> transformação de ideias em ações concretas, com mais clareza, estratégia e capacidade de gerar impacto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- E A JORNADA NÃO TERMINA AQUI -->
+<section class="path">
+  <div class="wrap">
+    <div class="path-head reveal">
+      <span class="eyebrow">E a jornada não termina aqui</span>
+      <h2>Você aprende. Você vive. Você multiplica.</h2>
+      <p>Porque desenvolver liderança também é criar novas líderes.</p>
+    </div>
+    <div class="path-grid reveal">
+      <div class="path-card">
+        <span class="eyebrow">Cofacilitadora</span>
+        <p>Continue sua jornada apoiando novas turmas, compartilhando experiências e contribuindo para o desenvolvimento de outras mulheres.</p>
+      </div>
+      <div class="path-card">
+        <span class="eyebrow">Facilitadora</span>
+        <p>Avance no projeto e esteja preparada para facilitar novas jornadas do Divas Lead.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- XPERTS COMMUNITY -->
+<section class="community">
+  <div class="wrap community-inner reveal">
+    <span class="eyebrow">Parte do Xperts Community</span>
+    <h2>Uma rede que acredita no crescimento coletivo</h2>
+    <p>O Divas Lead faz parte do Xperts Community, uma comunidade construída para conectar desenvolvimento, conhecimento e pessoas. Aqui, a formação não termina quando o último encontro acaba — você passa a fazer parte de uma rede que acredita no crescimento coletivo.</p>
+  </div>
+</section>
+
+<!-- IDEALIZADORAS -->
+<section class="founders">
+  <div class="wrap">
+    <div class="founders-head reveal">
+      <span class="eyebrow">Quem está por trás do Divas Lead</span>
+      <h2>As idealizadoras do projeto</h2>
+      <p>O Divas Lead foi criado por Erica Marques e Jéssica Rauen, a partir da crença de que desenvolver mulheres é também transformar comunidades. Uma formação que une humanidade, estratégia, inovação e conexão para preparar mulheres para liderar de uma forma diferente.</p>
+    </div>
+
+    <div class="founders-single reveal">
+      <!-- Espaço reservado para foto das duas idealizadoras juntas.
+           Substitua o div abaixo por: <img class="founder-photo" src="caminho-da-foto.jpg" alt="Erica Marques e Jéssica Rauen"> -->
+      <div class="founder-photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8a2 2 0 0 1 2-2h1.2l.8-1.5a1 1 0 0 1 .9-.5h4.2a1 1 0 0 1 .9.5L14.8 6H16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"/><circle cx="12" cy="13" r="3.2"/></svg>
+        <span>Foto em breve</span>
+      </div>
+      <div class="founders-names">
+        <div>
+          <h3>Erica Marques</h3>
+          <p>Founder · Xperts</p>
+        </div>
+        <div>
+          <h3>Jéssica Rauen</h3>
+          <p>CEO · Xperts</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIMENTO -->
+<section class="invest">
+  <div class="wrap invest-inner reveal">
+    <span class="eyebrow">Sobre o investimento</span>
+    <h2>Tudo isso por um investimento que parece irreal</h2>
+    <p>Uma formação com metodologias, desenvolvimento, mentorias, networking, experiências práticas e uma comunidade por um investimento pensado para ser acessível.</p>
+    <p>O valor foi estruturado principalmente para contribuir com os custos básicos da experiência, como materiais e coffee break.</p>
+    <p class="strong">Porque acreditamos que o acesso ao desenvolvimento não deve ser um privilégio. Queremos que mais mulheres tenham a oportunidade de desenvolver seu potencial, ocupar espaços e gerar impacto.</p>
+    <div class="section-cta">
+      <a href="#cta" class="btn-primary">Quero fazer parte</a>
+    </div>
+  </div>
+</section>
+
+<!-- MOVEMENT -->
+<section class="movement">
+  <div class="wrap movement-inner reveal">
+    <p class="eyebrow">Mais do que uma formação</p>
+    <h2>Um <b>movimento</b> de mulheres que decidiram liderar diferente, uma jornada para você se desenvolver, se posicionar, criar conexões, gerar resultados e, depois, ajudar outras mulheres a fazerem o mesmo.</h2>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <div class="cta-inner">
+        <span class="eyebrow">Turma com vagas limitadas</span>
+        <h2>Sua liderança começa<br>com uma decisão.</h2>
+        <p>As inscrições estão abertas para a próxima turma do Divas Lead – Liderança Humanizada para Inovação. Você não precisa estar pronta. Precisa estar disposta a começar.</p>
+
+        <div class="turma-info">
+          <div>
+            <div class="lbl">Duração</div>
+            <div class="val">3 meses de formação</div>
+          </div>
+          <div>
+            <div class="lbl">Formato</div>
+            <div class="val">Presencial ou online</div>
+          </div>
+          <div>
+            <div class="lbl">Vagas</div>
+            <div class="val">Turma limitada</div>
+          </div>
+        </div>
+
+        <a href="#" class="btn-primary">Quero fazer parte do Divas Lead</a>
+        <p class="cta-foot-note">Inscrições pelo link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">DIVAS<span>·</span>LEAD</div>
+    <div>@ <a class="ig" href="https://instagram.com/divas.xperts" target="_blank" rel="noopener">divas.xperts</a></div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
